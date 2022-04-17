@@ -30,12 +30,15 @@ def checkPrices(players):
     for i in range(len(playerInfo)):
         currentPrices.append(playerInfo[i][1])
     
+    #Check if current price is greater than sell price
     for i in range(len(currentPrices)):
         if(currentPrices[i]>sellPrices[i]):
             playerName = (playerInfo[i][0]).encode('utf-8')
             message+='\n'+str(playerName)+' is priced at: '+str(currentPrices[i])
             x+=1
     if(x>0):
+            #If the price of one player(or more) has met it's target, x will be larger than one
+            #and en email will be sent
             sender = "Email account of sender"
             receiver = "Email account of reciever"
             password = "Password to email account of sender"
